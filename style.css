@@ -1,0 +1,33 @@
+.intro-logo {
+  height: 75px;
+  width: 75px;
+}
+header {
+  text-align: center;
+  font-family: Impact, Charcoal, sans-serif;
+  border: solid black 1px;
+  margin-bottom: 25px;
+}
+.opener {
+  height: 50px;
+  width: 50px;
+  text-align: 
+}
+main {
+  text-align: center;
+  border: solid black 1px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+ul#tracking li {
+  display: flex;
+  
+  
+}
+footer {
+  margin-top: 25px;
+  border: solid black 1px;
+}
+body {
+  background-image: url()
+}
