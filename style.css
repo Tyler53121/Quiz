@@ -4,48 +4,79 @@
 }
 header {
   text-align: center;
-  font-family: Impact, Charcoal, sans-serif;
+  font-family: 'Permanent Marker', cursive; 
+  font-size: 20px;
   margin-bottom: 25px;
 }
-.opener {
-  height: 50px;
-  width: 50px;
-  text-align: 
+
+h1 {
+  text-shadow: 2px 2px 5px white;
 }
+
+.opener {
+  height: 100px;
+  width: 250px;
+  border: 5px solid orange;
+  
+}
+
 main {
+  display: flex;
   text-align: center;
-  width: 575px;
   margin: auto;
   border-radius: 10px;
   padding-bottom: 15px;
   padding-top: 15px;
   font-family: 'Permanent Marker', cursive;
+  background-color: yellow; 
+  border: #ffaa22 2px solid;
+}
 
-  ul#tracking li {
-  display: flex;  
+body#page {
+  background-image: url("https://wagnerwineandspirits.com/wp-content/uploads/2017/05/beer-background-light.jpg");
+  background-color: yellow;
 }
 
 footer {
-  margin-top: 25px;
-  margin: auto;
+  text-align: center;
+}
+
+#legend {
+  display: inline;
   font-family: 'Permanent Marker', cursive;
 }
 
-body {
-  background-image: url()
+a > button {
+  background-color: black; 
+  color: white;
+  border-radius: 10px;"
 }
 
-#image1 {
-  height: 300px;
-  width: 200px;
-  max-width: 100%;
-  left: 50px;
-  box-shadow: 0 0 8px 8px white inset
+.myButton {
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
 }
-.rightSide {
-  height: 300px;
-  width: 200px;
-  max-width: 100%;
-  left: 50px;
-  box-shadow: 0 0 8px 8px white inset
+.myButton:hover {
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+p {
+  padding: 5px;
 }
