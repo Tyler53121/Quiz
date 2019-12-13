@@ -1,7 +1,4 @@
-.intro-logo {
-  height: 75px;
-  width: 75px;
-}
+
 header {
   text-align: center;
   font-family: 'Permanent Marker', cursive; 
@@ -16,7 +13,7 @@ h1 {
 .opener {
   height: 100px;
   width: 250px;
-  border: 5px solid orange;
+  border: 7.5px solid orange;
   
 }
 
@@ -35,6 +32,11 @@ main {
 body#page {
   background-image: url("https://wagnerwineandspirits.com/wp-content/uploads/2017/05/beer-background-light.jpg");
   background-color: yellow;
+  background-repeat: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 footer {
