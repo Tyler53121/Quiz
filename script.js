@@ -1,4 +1,6 @@
-const QUESTIONS = [
+'use strict';
+
+const STORE = {
     {
         question: 'What are the 4 essential elements in making beer?',
         answers: [
@@ -49,30 +51,43 @@ const QUESTIONS = [
         ],
         correctAnswer: 'let it get infected by bacteria',
     }
-];
+};
 
 
 //these will track the question number and user score
 let questionNumber = 0
 let score = 0
 
+
+
 //this will generate the questions on the page
 function generateQuestion() {
-if (questionNumber < QUESTIONS.length) {
-    return 
-} 
+    let question = STORE.questions[STORE.currentQuestion];
+
+}
+
+//this will be responsible for showing the final page
+function finalScore() {
+    $('.final').show();
 };
 
 //this will be responsible for updating the score
 function updateScore() {
-
+    
 };
 
 //this will 
 
 //start the quiz
 function start() {
-
+    $('.myButton')on('click', function(event) {
+        generateQuestion();
+    })
 }
 
+function final() {
+    $('.finish').show();
+}
 
+function handleQuiz();
+    start();
