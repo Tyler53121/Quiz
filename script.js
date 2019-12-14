@@ -48,14 +48,7 @@ const QUESTIONS = [
         'let it ferment for over 6 months',
         ],
         correctAnswer: 'let it get infected by bacteria',
-    },
-    {
-        question: '',
-        answers: [
-
-        ],
-        correctAnswer: '',
-    },
+    }
 ];
 
 
