@@ -72,32 +72,50 @@ let correctAnswer = STORE[questionNumber].correctAnswer
 
 //start the quiz
 function start() {
-    $('.myButton')on('click', function(event) {
+    $('.myButton').on('click', function(event) {
         generateQuestion();
     
-    })
+    });
 }
 
 //this will generate the questions on the page
-function generateQuestion() {
-   let question = STORE[questionNumber].question
-   const newQuestion = $(`
+function generateQuestion(questionNumber) {
+   if (questionNumber < STORE.length) {
+       return newQuestion(questionNumber)//increases after unless you are on final question
+   }
+   else {
+       $('.questionHere').hide();//hides the area which would display questions
+       displayFinal(); //displays the final screen
+   }
+}
+
+function newQuestion(questionIndex) {
+    let question = STORE[questionNumber].question
+    let displayQuestion = $(`
+    <form>
+        <fieldset>
+            <legend class="questionDisplay">${question}</legend>
+        <fieldset>
+    </form>
+    `)
+
+    let displayAnswers = $(displayQuestion).find('fieldset');
+    //need to hide all the previous material and display the newQuestion below
+}   let answers = STORE[questionNumber].answers
+
+    const newQuestion = $(`
     <fieldset>
-    <section class="showHide">
-      <section class="startQuiz">
-       <img class='opener'src='https://images.squarespace-cdn.com/content/v1/56e1fbe6ab48deac01d5c154/1457927093381-59GT2P6CACA6QO6HDVFN/ke17ZwdGBToddI8pDm48kFu-Xf_xBH4jjaFyPKcXHc0UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcxI40aVpaNQCVuZtw4vC4LyW0hEtVApzOfWJf5wtDBfi62S_BtPd07m31n8xoR4D0/image-asset.png'>
+    <section class="showHide">  
           <p>${question}</p>
-       <button type="button" class="myButton">Start the quiz!</button>
-       </section>
-      <section class="questionHere"></section>
-      <section class="responseHere"></section>
-      <section class="finalHere"></section>
+      <input type="radio" class="questionHere">${answers}</section> //I dont know if this will display correctly?
+      <button type="submit" role="selectAnswer" class="start">are you sure?</button>
     </section>
     </fieldset>
     `);
 
     $('main').html(newQuestion);
 }
+
 
 function renderQuestion() {
     
@@ -106,19 +124,53 @@ function renderQuestion() {
 //this will be responsible for showing the final page
 function finalScore() {
     $('.finalHere').show();
+<p>Well, you gave it your best and you answered ${score} questions correct</p>
+
 };
 
 //this will be responsible for updating the score
 function updateScore() {
-    score++;
-    $('.score').text(score);
+    score + 1;
+    $('.questionTracker').text(score);
 };
 
 //this will update the value of questionNumber 
 function questionNumberIncrease() {
-    questionNumber++;
+    questionNumber + 1;
     $('.questionNumber').text(questionNumber + 1);
 }
+
+//to determine if an answer is correct
+function determine() {
+$('.start').on('submit', function(event) {
+    event.preventDefault();
+    //need to hide current box
+    //need to show response box
+    let selected = $('input:checked');
+    let inputAnswer = selected.val();
+    if(inputAnswer === STORE[questionNumber].correctAnswer) {
+        //need to show HTML for correct answer
+    }
+    else {
+        //show HTML for incorrect answer
+    }
+
+    )
+}
+}
+function correctAnswer() {
+    $(".responseHere").html(`
+    <p>you got the answer correct</p>
+    `);
+}
+
+function incorrectAnswer() {
+    $('.responseHere').html(`
+    <p>unfortunately you didnt get this one right, better luck next time!</p>
+    `)
+}
+
+
 
 
 
@@ -140,3 +192,19 @@ function letsDoThis() {
 
 
 $(letsDoThis);
+
+/////////////////////////////////// object oriented approach
+/*
+const counter = {
+    index: 0,
+    score: 0,
+    question: 1,
+    indexUp: () => {counter.index += 1},
+    scoreUp: () => {counter.score += 1},
+    questionUp: () => {counter.question += 1},
+},
+
+function start() {
+
+}
+*/
