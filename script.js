@@ -1,70 +1,65 @@
 'use strict';
 
-const STORE = [
+const STORE = {
     {
         question: 'What are the 4 essential elements in making beer?',
-        answers: [
-        'Sodium Chloride, Calcium Carbonate, Calcium Chloride, Gypsum,',
-        'Water, Bacteria, Malt, sugar',
-        'Water, Yeast, Malt, Hops', 
-        'Citra, Galaxy, Mosiac, Centennial',
-        'Barley, Apples, Honey, Water'   
-        ],
-        correctAnswer: 'Water, Yeast, Malt, Hops', 
+        a: 'Sodium Chloride, Calcium Carbonate, Calcium Chloride, Gypsum,',
+        b: 'Water, Bacteria, Malt, sugar',
+        c: 'Water, Yeast, Malt, Hops', 
+        d: 'Citra, Galaxy, Mosiac, Centennial',
+        e: 'Barley, Apples, Honey, Water'   
+        correctAnswer: 'Water, Yeast, Malt, Hops',
+        explaination: 'if you got this one wrong you can probably stop right Headers', 
     },
     {
         question: 'What is the correct process for homebrewing in the correct order',
-        answers: [
-        'Water treatment and propagation, mill grains, heat strike water, mash out',
-        'Boil, whirlpool hop, turbid mash, bottle',
-        'Fermentation, Carbonation, Aeration, Packaging',
-        'Mash, boil, Cool, Ferment',
-        'Dough in, Mill Grains, Heat Sparge Water, Boil'
-        ],
+        a: 'Water treatment and propagation, mill grains, heat strike water, mash out',
+        b: 'Boil, whirlpool hop, turbid mash, bottle',
+        c: 'Fermentation, Carbonation, Aeration, Packaging',
+        d: 'Mash, boil, Cool, Ferment',
+        e: 'Dough in, Mill Grains, Heat Sparge Water, Boil'
         correctAnswer: 'Mash, boil, Cool, Ferment',
+        explaination: 'only slighty more difficult than the first question if you are a homebrewer,'
     },
     {
         question: 'What is the most popular type of beer brewed at home',
-        answers: [
-        'New England style India Pale Ale (hazy IPA)',
-        'India Pale Ale',
-        'Double India Pale Ale',
-        'lager',
-        'Ale'
-        ],
+        a: 'New England style India Pale Ale (hazy IPA)',
+        b: 'India Pale Ale',
+        c: 'Double India Pale Ale',
+        d: 'lager',
+        e: 'Ale'
         correctAnswer: 'Ale',
+        explaination: 'okay so this is kind of a trick question. while IPA is by far the most populate style of beer, there are only two types of beer, lager and ale. Ale is by far the most popular'
     },
     {
         question: 'What is the best way to increase ABV (alchol by volume) in homebrew?',
-        answers: [
-        'Add sugar in the last 5 minutes of the boil',   
-        'use a highly flocculent yeast',
-        'Mill your grains extra fine to increase brewhouse efficiency',
-        'Add fruit to the fermentation process',
-        'Add twice the amount of hops'
-        ],
+        a: 'Add sugar in the last 5 minutes of the boil',   
+        b: 'use a highly flocculent yeast',
+        c: 'Mill your grains extra fine to increase brewhouse efficiency',
+        d: 'Add fruit to the fermentation process',
+        e: 'Add twice the amount of hops'
         correctAnswer: 'Add sugar in the last 5 minutes of the boil',
+        explaination: 'while some of the methods listed will work, the best and most easy way is to add sugar to your boil increasing the starting gravity. However, you will need to be sure that you are using an alcohol tolerant yeast if you want your final product to have the high ABV that you are looking for.'
     },
     {
         question: 'There are many ways to make a beer “sour”, which of the ways below will work best',
-        answers: [
-        'use souring hops',
-        'let it get infected by bacteria',
-        'add sour fruits to the fermentation process',
-        'add vinegar',
-        'let it ferment for over 6 months',
-        ],
+        a: 'use souring hops',
+        b: 'let it get infected by bacteria',
+        c: 'add sour fruits to the fermentation process',
+        d: 'add vinegar',
+        e: 'let it ferment for over 6 months',
         correctAnswer: 'let it get infected by bacteria',
+        explaination: 'souring in beer is caused by three specific yeast/bacteria, pediococcus bacteria, lactobacilus bacteria, and Brettanomyces yeast, which cause the souring effect in beers.  '
     }
-];
+};
 
-
+/*
 //these will track the question number and user score
 let questionNumber = 0 //this was currentQuestion = 0
 let score = 0
 
 //these are variables I used to save myself time from having to repeat myself. (I know they are global,
-// its a small enough program),
+// its a small enough program i plan on removing this at the end,
 let question = STORE[questionNumber].question
 let answers = STORE[questionNumber].answers
 let correctAnswer = STORE[questionNumber].correctAnswer
@@ -72,7 +67,7 @@ let correctAnswer = STORE[questionNumber].correctAnswer
 
 //start the quiz
 function start() {
-    $('.myButton').on('click', function(event) {
+    $('.start').on('click', function(event) {
         generateQuestion();
     
     });
@@ -86,6 +81,7 @@ function generateQuestion(questionNumber) {
    else {
        $('.questionHere').hide();//hides the area which would display questions
        displayFinal(); //displays the final screen
+       $('.questionNumber').text(5)
    }
 }
 
@@ -103,7 +99,7 @@ function newQuestion(questionIndex) {
     //need to hide all the previous material and display the newQuestion below
 }   let answers = STORE[questionNumber].answers
 
-    const newQuestion = $(`
+    const generateNewQuestion = $(`
     <fieldset>
     <section class="showHide">  
           <p>${question}</p>
@@ -113,9 +109,9 @@ function newQuestion(questionIndex) {
     </fieldset>
     `);
 
-    $('main').html(newQuestion);
+    $('main').html(generateNewQuestion);
 }
-
+//dont know how 
 
 function renderQuestion() {
     
@@ -192,9 +188,9 @@ function letsDoThis() {
 
 
 $(letsDoThis);
-
+*/
 /////////////////////////////////// object oriented approach
-/*
+
 const counter = {
     index: 0,
     score: 0,
@@ -204,7 +200,99 @@ const counter = {
     questionUp: () => {counter.question += 1},
 },
 
-function start() {
+//change the view
 
-}
-*/
+const view = {
+    hide: element => {
+        $(element).addClass('js-hidden');
+    },
+    show: element => {
+        $(element).removeClass('js-hidden');
+
+    }
+};
+
+//focus on elements
+
+const focusElement = {
+    form: () => {
+        $('#js-question-form input').focus();
+    },
+};
+
+//render HTML element
+
+const render {
+    start: () => {
+        $('#js-start-section').html(`
+        <div class="container-box" id="js-start-content>    
+            <section role="region" class="main-content">
+                <header role="intro">
+                    <img class='opener'src='https://images.squarespace-cdn.com/content/v1/56e1fbe6ab48deac01d5c154/1457927093381-59GT2P6CACA6QO6HDVFN/ke17ZwdGBToddI8pDm48kFu-Xf_xBH4jjaFyPKcXHc0UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcxI40aVpaNQCVuZtw4vC4LyW0hEtVApzOfWJf5wtDBfi62S_BtPd07m31n8xoR4D0/image-asset.png'>
+                </header>
+                <p>Do you homebrew? Homebrewing can be done in many different ways. The answers to these questions are subjective. Just try to answer to the best of your knowledge and ability to see if you should drink less and study more!</p>          
+            </section>
+            <button type="button" class="start">Start the quiz!</button>
+        </div>
+        `);    
+        }
+    },
+    question: () => {
+        $('#js-question-section').html(`
+        <div class="container-box">
+            <section role="region"  id="js-question-content">
+                <h1>${STORE[counter.index].question}</h1>
+            </section>
+            <section class="radio-form">
+                <form id="js-question-form>
+                    <fieldset class='form-group'>
+                     <div class='form-check'>
+                      <label class="form-check-label">
+                        <input type='radio' class='form-check-input' 
+                        name='radio-input' id='radio-input' 
+                        value="${STORE[counter.index].a}" unchecked>
+                         ${STORE[counter.index].a}
+                      </label>
+                     </div>
+                     <div class='form-check'>
+                      <label class="form-check-label">
+                        <input type='radio' class='form-check-input' 
+                        name='radio-input' id='radio-input' 
+                        value="${STORE[counter.index].b}" unchecked>
+                         ${STORE[counter.index].b}
+                      </label>
+                     </div>
+                     <div class='form-check'>
+                      <label class="form-check-label">
+                        <input type='radio' class='form-check-input' 
+                        name='radio-input' id='radio-input' 
+                        value="${STORE[counter.index].c}" unchecked>
+                         ${STORE[counter.index].c}
+                      </label>
+                     </div>
+                     <div class='form-check'>
+                      <label class="form-check-label">
+                        <input type='radio' class='form-check-input' 
+                        name='radio-input' id='radio-input' 
+                        value="${STORE[counter.index].d}" unchecked>
+                         ${STORE[counter.index].d}
+                      </label>
+                     </div>
+                     <div class='form-check'>
+                      <label class="form-check-label">
+                        <input type='radio' class='form-check-input' 
+                        name='radio-input' id='radio-input' 
+                        value="${STORE[counter.index].e}" unchecked>
+                         ${STORE[counter.index].e}
+                      </label>
+                     </div>
+                    </fieldset>
+                  <button type="submit" class="next">try your luck!</button>
+                </form>
+                
+
+
+
+        </div>
+        `)
+    }
